@@ -182,10 +182,10 @@ class Planet {
 
 function generate() {
     planets.push(new Planet(25, 25, createVector(0, 0), createVector(0, 0), color(255, 148, 0), false, "Sun"));
-    planets.push(new Planet(6, 6, createVector(0, -3), createVector(5, 0), color(140, 203, 255), false, "Planet"));
+    planets.push(new Planet(6, 6, createVector(0, 300), createVector(5, 0), color(140, 203, 255), false, "Planet"));
 
     beginning.push(new Planet(25, 25, createVector(0, 0), createVector(0, 0), color(255, 148, 0), false, "Sun"));
-    beginning.push(new Planet(6, 6, createVector(0, -3), createVector(5, 0), color(140, 203, 255), false, "Planet"));
+    beginning.push(new Planet(6, 6, createVector(0, 300), createVector(5, 0), color(140, 203, 255), false, "Planet"));
 }
 
 function update(p, t) {
