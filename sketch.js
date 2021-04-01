@@ -1,6 +1,6 @@
 function setup() {
-    w = 1280;
-    createCanvas(1000, 574);
+    w = windowWidth;
+    createCanvas(windowWidth * 4 / 5, windowHeight - 5);
     generate();
     for (let i = 0; i < planets.length; i++) {
         planets[i].ID = i;
