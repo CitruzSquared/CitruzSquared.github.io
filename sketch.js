@@ -24,8 +24,6 @@ function draw() {
   p1.trail();
   pop();
   
-  
-  
   if(p1.d > 300) {
     p1 = genNew();
   }
