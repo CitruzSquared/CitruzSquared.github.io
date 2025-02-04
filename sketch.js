@@ -1,5 +1,5 @@
 function setup() {
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(windowWidth, windowHeight);
   p1 = genNew();
 }
 
