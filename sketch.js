@@ -1,31 +1,66 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
   p1 = genNew();
+  generating = true;
 }
 
+var generating, disappearing;
+var animationend = false;
 var p1;
 var R = 100;
+var animationradius = 0;
+var animationsteps = 20;
 
 function draw() {
   background(0);
   noStroke();
+  fill(255);
   translate(width/2,height/2);
-  p1.update();
+  
+  
+  if(generating) {
+    ellipse(p1.x, p1.y, animationradius*2, animationradius*2);
+    if(animationradius >= p1.r) {
+      generating = false;
+    }
+    animationradius += p1.r/animationsteps;
+  }
+  else if (disappearing) {
+    ellipse(p1.x, p1.y, animationradius*2, animationradius*2);
+    if(animationradius <= 0) {
+      disappearing = false;
+      animationend = true;
+    }
+    animationradius -= p1.r/animationsteps;
+  }
   p1.contacts();
+  
+  if (!generating && !disappearing && !animationend) {
+  p1.update();
   p1.show();
+  }
+  
   fill(0);
   ellipse(0, 0, R*2, R*2);
   
   push();
-  clip(mask, {invert:true});
+  if(!disappearing) {
+    clip(mask, {invert:true});
+  }
   clip(mask2, {invert:true});
   fill(255,40,0);
   ellipse(0, 0, R*2, R*2);
   p1.trail();
   pop();
   
-  if(p1.d > 250) {
+  if(p1.d > 251 && !animationend) {
+    disappearing = true;
+  }
+  if(animationend) {
     p1 = genNew();
+    animationend = false;
+    generating = true;
+    disappearing = false;
   }
 }
 
@@ -54,7 +89,7 @@ class circle {
     // let y_corr = (this.r) * Math.sin(this.theta);
     stroke(255, 120);
     strokeWeight(2.5);
-    //drawingContext.setLineDash([10,10]);
+    // drawingContext.setLineDash([10,10]);
     line(this.sx, this.sy, this.x, this.y);
   noStroke();
   }
@@ -124,3 +159,6 @@ function genNew() {
   pvy = -2 * Math.sin(pdir);
   return new circle(px, py, pr, pvx, pvy);
 }
+
+
+
