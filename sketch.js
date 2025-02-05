@@ -49,9 +49,6 @@ function draw() {
   }
   clip(mask2, {invert:true});
   fill(255,40,0);
-  if(Math.sqrt((mouseX-width/2)*(mouseX-width/2) + (mouseY-height/2)*(mouseY-height/2)) <= R) {
-   fill(255,80,60); 
-  }
   ellipse(0, 0, R*2, R*2);
   p1.trail();
   pop();
