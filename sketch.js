@@ -48,7 +48,7 @@ function draw() {
     clip(mask, {invert:true});
   }
   clip(mask2, {invert:true});
-  fill(255,40,0);
+  fill(255,40,40);
   ellipse(0, 0, R*2, R*2);
   p1.trail();
   pop();
