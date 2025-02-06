@@ -27,14 +27,27 @@
         }
         .full-slide {
             height: 100vh;
+	width: 75%;
+	margin: auto;
         }
-        div {
-            display: block;
-        }
-        div .title {
+        div.title {
             font-size: 30pt;
             margin: 0;
             margin-bottom: 30px;
+        }
+        div.navbar {
+	box-sizing:border-box;
+	position: fixed;
+	padding-left: 100px;
+	padding-right: 100px;
+	width: 100%;
+	margin: 0;
+        }
+        div.navbar-content {
+	width:75%; 
+	margin:auto; 
+	padding:0; 
+	display:flex;
         }
         a {
             color: inherit;
@@ -43,28 +56,29 @@
         a:hover, a:active {
             text-decoration: underline;
         }
-        li a {
-            display: block;
-            padding: 8px;
-	background-color: #ff2828;
+        li.navbar a {
+	display: block;
+  	padding: 3px;
+	margin-left: 10px;
         }
-        li .navbar {
-            display: inline;
+        li.navbar {
+	float: right;
         }
-        ul .navbar {
+        ul.navbar {
   	list-style-type: none;
   	margin: 0;
-  	padding: 0;
+	padding-left: 20px;
+	padding-right: 20px;
 	overflow: hidden;
-  	position: fixed;
-  	top: 0;
-  	width: 100%;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	flex: 1;
         }
     </style>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
-<body style="background-color:#282828;">
+<body style="background-color:#000000; color:#ffffff"">
     <main>
         <script src="p5.js">
         </script>
@@ -72,13 +86,21 @@
         <script src="sketch.js"></script>
     </main>
 
-<div class="full-slide" id="home" style="color:white; display: flex;">
-	<div style="align-self: flex-start; width:100%">
-	<ul class="navbar" style="font-size:16pt">
-		<li class="navbar"><a href="#home" style="width:100px">Home</a></li>
-		<li class="navbar"><a href="#page1" style="width:100px">Page 1</a></li>
-		<li class="navbar"><a href="#page2" style="width:100px">Page 2</a></li>
+<div class="navbar" style="align-self: flex-start; background-color: #282828; display:flex;">
+<div class="navbar-content">
+	<h3> <a style="text-decoration: none;" href="#home">CITRUZ WEBSITE</a> </h3> 
+	<ul class="navbar" style="font-size:11pt; display:inline-block; align-self:flex-end;">
+		<li class="navbar" ><a href="#page2">Page 2</a></li>
+		<li class="navbar" ><a href="#page3">Page 3</a></li>
 	</ul>
+</div>
+</div>
+
+<div class="full-slide" id="home" style="display: flex; flex-direction:column">
+    	<div style="align-self: flex-end; width:33%; margin: auto; text-align: center">
+    		<div style="font-size: 50pt; text-align: center; margin-bottom:60px">
+        			S H I R U
+            	</div>
 	</div>
 	<div style="align-self: flex-end; width:33%; margin: auto; margin-bottom: 120px; text-align: center">
     		<div class="title" style="text-align: center; margin-bottom:60px">
@@ -88,7 +110,7 @@
 	</div>
 </div>
 
-<div class="full-slide" id="page2" style="background-color:#282828">
+<div class="full-slide" id="page2" style="background-color:#282828;" >
 	<br>
 	<h1>PAGE 2</h1> 
 	<p> hihihihi hihihihi hihihihi hihihihi hihihihi hihihihi hihihihi hihihihi hihihihi hihihihi </p>
