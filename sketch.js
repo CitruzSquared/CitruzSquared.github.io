@@ -160,5 +160,7 @@ function genNew() {
   return new circle(px, py, pr, pvx, pvy);
 }
 
-
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight, false);
+}
 
